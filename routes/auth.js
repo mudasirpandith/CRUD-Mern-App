@@ -67,7 +67,9 @@ router.post("/update/:id", async (req, res) => {
 //---------  this wil Delete new  record--------
 //----------------------------------------------
 router.post("/:id", async (req, res) => {
-  const UserFound = await User.deleteOne({ _id: ObjectId(req.params.id) });
+  const UserFound = await User.findOneAndDelete({
+    _id: ObjectId(req.params.id),
+  });
   if (!UserFound) {
     res.status(400).json("Error");
   } else {
