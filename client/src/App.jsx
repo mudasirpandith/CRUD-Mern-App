@@ -1,17 +1,13 @@
+import "./App.css";
 import React from "react";
-
-import { Route, Routes, NavLink } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.css";
-import RecordList from "./components/recordlist";
-import Edit from "./components/edit";
-import Create from "./components/create";
-// import component 👇
 import Drawer from "react-modern-drawer";
-
-//import styles 👇
 import "react-modern-drawer/dist/index.css";
-
-const App = () => {
+import AppBar from "@mui/material/AppBar";
+import { Routes, Route, NavLink } from "react-router-dom";
+import Login from "./components/login";
+import Home from "./components/home";
+import Register from "./components/register";
+function App() {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
@@ -19,33 +15,55 @@ const App = () => {
   const toggleDrawerBack = () => {
     setIsOpen((prevState) => !prevState);
   };
-
   return (
     <>
-      <button onClick={toggleDrawer}>&#9776;</button>
-      <Drawer
-        open={isOpen}
-        onClose={toggleDrawer}
-        direction="left"
-        className="bla bla bla"
-      >
+      <AppBar color="primary">
         {" "}
-        <NavLink
-          className="nav-link"
-          onClick={toggleDrawerBack}
-          className="nav-link"
-          to="/create"
+        <div className="navIcon" onClick={toggleDrawer}>
+          &#9776;
+        </div>
+        <Drawer
+          open={isOpen}
+          onClose={toggleDrawer}
+          direction="left"
+          className="bla bla bla"
+          duration={200}
         >
-          Create Record
-        </NavLink>{" "}
-      </Drawer>{" "}
+          <NavLink
+            style={{ marginTop: "30px" }}
+            className="nav-link"
+            onClick={toggleDrawerBack}
+            to="/login"
+          >
+            {" "}
+            Log In
+          </NavLink>
+          <br />
+          <NavLink className="nav-link" onClick={toggleDrawerBack} to="/">
+            {" "}
+            Home
+          </NavLink>{" "}
+          <br />
+          <NavLink
+            className="nav-link"
+            onClick={toggleDrawerBack}
+            to="/register"
+          >
+            {" "}
+            Register
+          </NavLink>{" "}
+          <br />
+        </Drawer>
+        <h1 className="app-title">TEST</h1>
+      </AppBar>
+
       <Routes>
-        <Route exact path="/" element={<RecordList />} />
-        <Route path="/edit/:id" element={<Edit />} />
-        <Route path="/create" element={<Create />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
-};
+}
 
 export default App;
