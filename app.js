@@ -8,6 +8,8 @@ app.use(express.json());
 
 app.use(require("./routes/auth"));
 // get driver connection
+const bodyParser = require("body-parser");
+app.use(bodyParser);
 const dbo = require("./db/conn");
 const path = require("path");
 

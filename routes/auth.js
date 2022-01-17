@@ -7,6 +7,7 @@ const router = express.Router();
 //---------  this wil give list of record--------
 //----------------------------------------------
 router.get("/record", async (req, res) => {
+  res.cookie("e", "efiefhbhfbrf");
   const response = await User.find({});
   if (!response) {
     res.json("No User in record");
