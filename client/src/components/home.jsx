@@ -8,7 +8,7 @@ export default function Home() {
   const navigate = useNavigate();
   async function getData() {
     try {
-      const res = await fetch("http://localhost:5000/home", {
+      const res = await fetch("/home", {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -19,11 +19,10 @@ export default function Home() {
       const data = await res.json();
       if (!res.status === 200) {
         const error = new Error(res.error);
-        window.alert(error);
+        navigate("/login");
       }
       setUserData(data);
       console.log(data.email);
-      console.log("eeeror");
     } catch (err) {
       console.log(err);
       navigate("/login");
@@ -34,7 +33,7 @@ export default function Home() {
     getData();
   });
   async function handleLogOut() {
-    const res = fetch("http://localhost:5000/logout", {
+    const res = fetch("/logout", {
       method: "Post",
     });
     if (res.status === 200) {

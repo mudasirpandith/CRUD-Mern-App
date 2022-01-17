@@ -23,7 +23,7 @@ export default function Register() {
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newPerson = { ...userData };
 
-    const res = await fetch("http://localhost:5000/register", {
+    const res = await fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
