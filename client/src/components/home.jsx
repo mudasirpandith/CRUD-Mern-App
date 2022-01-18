@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import CustomGrid from "./grid";
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-
+import CustomDrawer from "./drawer";
 export default function Home() {
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
+
   async function getData() {
     try {
       const res = await fetch("/home", {
@@ -22,7 +22,6 @@ export default function Home() {
         navigate("/login");
       }
       setUserData(data);
-      console.log(data.email);
     } catch (err) {
       console.log(err);
       navigate("/login");
@@ -30,31 +29,22 @@ export default function Home() {
   }
 
   useEffect(() => {
-    getData();
-  });
-  async function handleLogOut() {
-    const res = fetch("/logout", {
-      method: "Post",
-    });
-    if (res.status === 200) {
-      navigate("/login");
+    let isActive = true;
+    if (isActive) {
+      getData();
+      return () => {
+        isActive = false;
+      };
     }
-  }
+  }, []);
 
   return (
     <>
       {" "}
+      <CustomDrawer name={userData.name} email={userData.email} />
       <form method="get">
-        <h2>d</h2>
-        <h2>{userData.name}</h2>
-        <h3>{userData.email} </h3>
-        <h3>{userData.phoneNumber} </h3>
-
         <CustomGrid />
       </form>
-      <Button variant="contained" onClick={handleLogOut} type="submit">
-        Logout
-      </Button>
     </>
   );
 }
