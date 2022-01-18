@@ -32,7 +32,7 @@ export default function CustomDrawer(props) {
   function ButtonAppBar() {
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <Toolbar>
             <IconButton
               size="large"
@@ -45,23 +45,23 @@ export default function CustomDrawer(props) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Leaders
+              Leaders <p className="user-profile">{props.username}</p>
             </Typography>
           </Toolbar>
         </AppBar>
         <Drawer
           open={isOpen}
+          zIndex="2222"
           onClose={toggleDrawer}
           direction="left"
           className="bla bla bla"
           duration={400}
         >
-          <center>
-            <p className="user-profile">{props.name}</p>
-            <p className="user-profile">{props.email} </p>
-          </center>
-
-          <Button color="inherit" onClick={logout}>
+          <Button
+            style={{ position: "absolute", bottom: "20px", width: "90%" }}
+            variant="contained"
+            onClick={logout}
+          >
             LogOut
           </Button>
         </Drawer>

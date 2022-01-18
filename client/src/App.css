@@ -15,7 +15,7 @@ Button {
   padding: 10px 20px;
 }
 .register-box {
-  background-image: url("../public/images/background.jpg");
+  background-image: url("../src/images/background.jpg");
   background-size: cover;
 
   background-color: rgb(224, 222, 216);
@@ -23,5 +23,16 @@ Button {
   margin-top: 10%;
 }
 .user-profile {
-  color: grren;
+  position: absolute;
+  z-index: 88;
+  font-size: 1rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-top: -30px;
+
+  right: 20px;
+}
+.logout-btn {
+  position: absolute;
+  margin-top: 100px;
+  bottom: 0;
 }

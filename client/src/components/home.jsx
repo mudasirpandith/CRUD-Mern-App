@@ -41,10 +41,15 @@ export default function Home() {
   return (
     <>
       {" "}
-      <CustomDrawer name={userData.name} email={userData.email} />
-      <form method="get">
-        <CustomGrid />
-      </form>
+      <h1>#</h1>
+      <CustomDrawer username={userData.name} />
+      <form method="get"> </form>
+      <h1>Top Subjectwise Tests</h1>
+      <CustomGrid />
+      <h1>Top Chapterwise Tests</h1>
+      <CustomGrid />
+      <h1>Top Full Syllabus Tests</h1>
+      <CustomGrid />
     </>
   );
 }

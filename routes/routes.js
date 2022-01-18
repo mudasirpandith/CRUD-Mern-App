@@ -2,14 +2,17 @@ const express = require("express");
 const User = require("../Schema/user");
 const jwt = require("jsonwebtoken");
 const authenticate = require("../middleware/middleware");
+
 const Route = express.Router();
 
 require("../db/conn");
 require("../Schema/user");
+
 Route.get("/home", authenticate, (req, res) => {
   console.log("accesed");
   res.status(200).json(req.userFound);
 });
+
 Route.post("/logout", async (req, res) => {
   const Cleared = await res.clearCookie("Leaders");
   if (Cleared) {
@@ -53,7 +56,7 @@ Route.post("/login", async (req, res) => {
         httpOnly: true,
       });
 
-      res.status(200).json(token);
+      res.status(200).json({ message: "user found" });
     } else {
       res.status(400).json({ message: "Invalid Email or Password" });
     }
