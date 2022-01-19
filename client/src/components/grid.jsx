@@ -23,17 +23,29 @@ export default function CustomGrid() {
           <Grid item xs={12} sm={4}>
             <Item>
               {" "}
-              <MultiActionAreaCard image={BiologyFull} subject="Biology" />{" "}
+              <MultiActionAreaCard
+                link="/subjects/fullslybuss/biology/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
+                image={BiologyFull}
+                subject="Biology"
+              />{" "}
             </Item>
           </Grid>
           <Grid item xs={12} sm={4}>
             <Item>
-              <MultiActionAreaCard image={PhysicsFull} subject="Physics" />
+              <MultiActionAreaCard
+                link="/subjects/fullslybuss/physics/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
+                image={PhysicsFull}
+                subject="Physics"
+              />
             </Item>
           </Grid>
           <Grid item xs={12} sm={4}>
             <Item>
-              <MultiActionAreaCard image={ChemistryFull} subject="Chemistry" />
+              <MultiActionAreaCard
+                link="/subjects/fullslybuss/chemistry/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
+                image={ChemistryFull}
+                subject="Chemistry"
+              />
             </Item>
           </Grid>
         </Grid>

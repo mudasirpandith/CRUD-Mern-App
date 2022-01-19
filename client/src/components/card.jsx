@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 export default function MultiActionAreaCard(props) {
   return (
@@ -26,9 +27,12 @@ export default function MultiActionAreaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" variant="contained">
-          Take A visit
-        </Button>
+        <NavLink className="nav-link" to={props.link}>
+          <Button size="small" variant="contained">
+            {" "}
+            Take A Visit{" "}
+          </Button>
+        </NavLink>
       </CardActions>
     </Card>
   );
