@@ -18,7 +18,7 @@ export default function Biology() {
     <>
       <CustomDrawer />
       <h1>#</h1>
-      <h1>Physics</h1>
+      <h1>Biology</h1>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {" "}
