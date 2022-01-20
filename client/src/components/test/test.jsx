@@ -59,6 +59,7 @@ export default function Test() {
   }
   function handleIncrease() {
     setCurrentQuestion(currentQuestion + 1);
+
     setExplaination("");
     setCorrectAnswer("");
     setSubmitBtn(false);
@@ -127,11 +128,19 @@ export default function Test() {
             onClick={handleIncrease}
             disabled={nextbtn}
             variant="contained"
+            fullWidth="true"
+            color="success"
           >
             {" "}
             Next
           </Button>
-          <Button variant="contained" disabled={submitbtn} onClick={onsubmit}>
+          <Button
+            variant="contained"
+            color="success"
+            fullWidth="true"
+            disabled={submitbtn}
+            onClick={onsubmit}
+          >
             Submit
           </Button>
         </CardActions>
