@@ -57,9 +57,31 @@ export default function CustomDrawer(props) {
           className="bla bla bla"
           duration={400}
         >
-          <NavLink className="nav-link" to="/">
-            <Button variant="outlined">Home</Button>
-          </NavLink>
+          <NavLink style={{ marginTop: "60px" }} className="nav-link" to="/">
+            Home
+          </NavLink>{" "}
+          <br />
+          <NavLink
+            className="nav-link"
+            to="/subjects/fullslybuss/physics/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
+          >
+            Physics Section
+          </NavLink>{" "}
+          <br />
+          <NavLink
+            className="nav-link"
+            to="subjects/fullslybuss/chemistry/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
+          >
+            Chemistry Section
+          </NavLink>{" "}
+          <br />
+          <NavLink
+            className="nav-link"
+            to="/subjects/fullslybuss/biology/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
+          >
+            Biology Section
+          </NavLink>{" "}
+          <br />
           <Button
             style={{ position: "absolute", bottom: "50px" }}
             variant="contained"
