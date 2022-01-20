@@ -22,6 +22,7 @@ Route.post("/logout", async (req, res) => {
 Route.post("/register", async (req, res) => {
   const { name, email, phoneNumber, password } = req.body;
   let token;
+
   if (!email || !password || !name || !phoneNumber) {
     res.status(400).json({ message: "Enter All Fields" });
   } else {
@@ -29,7 +30,12 @@ Route.post("/register", async (req, res) => {
     if (UserExits) {
       res.status(400).json({ message: "User already Exits" });
     } else {
-      const user = new User({ name, email, phoneNumber, password });
+      const user = new User({
+        name: name,
+        email: email,
+        phoneNumber: phoneNumber,
+        password: password,
+      });
       const addedUser = await user.save();
       if (addedUser) {
         res.status(200).json({ message: "User added" });

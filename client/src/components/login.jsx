@@ -1,9 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 export default function Register() {
+  const [userHData, setHUserData] = useState({});
+
+  async function getData() {
+    try {
+      const res = await fetch("/home", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+      const data = await res.json();
+      if (!res.status === 200) {
+        const error = new Error(res.error);
+        navigate("/login");
+      } else {
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err);
+      navigate("/login");
+    }
+  }
+
+  useEffect(() => {
+    let isActive = true;
+    if (isActive) {
+      getData();
+      return () => {
+        isActive = false;
+      };
+    }
+  }, []);
+
   const [userData, setUserData] = useState({});
   const [message, setMessage] = useState("");
   const [submitText, setSubbmitText] = useState("Log In");

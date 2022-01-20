@@ -69,6 +69,20 @@ const Questions = [
     CorrectAnswer: "Connective Tissue",
     explaination: "Coming Soon ... Sorry for Inconvinance",
   },
+  {
+    question: "Q6. How is this developed.",
+    questionID: "Q6",
+    Optoions: [
+      {
+        op1: "Great",
+        op2: "Good",
+        op3: "Not good",
+        op4: "Awesome",
+      },
+    ],
+    CorrectAnswer: "Great",
+    explaination: "Coming Soon ... Sorry for Inconvinance",
+  },
 ];
 
 export default Questions;

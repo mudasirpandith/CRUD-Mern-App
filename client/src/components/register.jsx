@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 export default function Register() {
-  const [userData, setUserData] = useState({});
   const [message, setMessage] = useState("");
+  const [userData, setUserData] = useState({});
 
   const [submitText, setSubbmitText] = useState("Register");
   const navigate = useNavigate();
