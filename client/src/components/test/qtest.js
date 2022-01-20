@@ -10,7 +10,8 @@ const Questions = [
         op4: "9",
       },
     ],
-    CorrectAnser: "7",
+    CorrectAnswer: "7",
+    explaination: "Coming Soon ... Sorry for Inconvinance",
   },
   {
     question: "Q2. Which algae is used by spacetravellers ",
@@ -23,7 +24,8 @@ const Questions = [
         op4: "Chara",
       },
     ],
-    CorrectAnser: "Chorella",
+    CorrectAnswer: "Chorella",
+    explaination: "Coming Soon ... Sorry for Inconvinance",
   },
   {
     question: " Q3. Water loss due to root pressure is called ",
@@ -36,7 +38,8 @@ const Questions = [
         op4: "Tranduction",
       },
     ],
-    CorrectAnser: "Guttation",
+    CorrectAnswer: "Guttation",
+    explaination: "Coming Soon ... Sorry for Inconvinance",
   },
   {
     question: "Q4. Transfer of energry occurs in accordance with",
@@ -49,7 +52,8 @@ const Questions = [
         op4: "Zeroth law of thermodynamics",
       },
     ],
-    CorrectAnser: "both laws",
+    CorrectAnswer: "both laws",
+    explaination: "Coming Soon ... Sorry for Inconvinance",
   },
   {
     question: "Q5. Which is most abundant tissue in human body.",
@@ -62,7 +66,8 @@ const Questions = [
         op4: "Muscular Tissue",
       },
     ],
-    CorrectAnser: "Connective Tissue",
+    CorrectAnswer: "Connective Tissue",
+    explaination: "Coming Soon ... Sorry for Inconvinance",
   },
 ];
 

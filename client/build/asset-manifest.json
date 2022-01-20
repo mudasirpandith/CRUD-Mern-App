@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.3cbb24c6.css",
-    "main.js": "/static/js/main.0e06ce4d.js",
+    "main.js": "/static/js/main.b004d6e8.js",
     "static/media/biologyfull.jpg": "/static/media/biologyfull.8bc594a53a360e96f188.jpg",
     "static/media/physicsfull.jpg": "/static/media/physicsfull.4f8dea2e4d1d6e8ca611.jpg",
     "static/media/chemistryfull.jpg": "/static/media/chemistryfull.f75fd15ff0a724c57808.jpg",
     "index.html": "/index.html",
     "main.3cbb24c6.css.map": "/static/css/main.3cbb24c6.css.map",
-    "main.0e06ce4d.js.map": "/static/js/main.0e06ce4d.js.map"
+    "main.b004d6e8.js.map": "/static/js/main.b004d6e8.js.map"
   },
   "entrypoints": [
     "static/css/main.3cbb24c6.css",
-    "static/js/main.0e06ce4d.js"
+    "static/js/main.b004d6e8.js"
   ]
 }
