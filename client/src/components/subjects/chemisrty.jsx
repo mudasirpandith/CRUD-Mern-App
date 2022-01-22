@@ -38,8 +38,8 @@ export default function Biology() {
   return allTests.length ? (
     <>
       <CustomDrawer />
-
-      <h1>Biology</h1>
+      <h1>#</h1>
+      <h1>Chemistry</h1>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {" "}

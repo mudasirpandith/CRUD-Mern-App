@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -49,7 +49,7 @@ export default function Register() {
       <center>
         <div className="register-box">
           <p className="message">{message}</p>
-          <h2>Register </h2>
+          <h2>Create Account </h2>
           <Box
             onSubmit={onSubmit}
             component="form"
