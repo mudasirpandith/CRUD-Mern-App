@@ -50,6 +50,7 @@ export default function Home() {
       <CustomGrid />
       <h1>Top Full Syllabus Tests</h1>
       <CustomGrid />
+      <footer>Copyright©{new Date().getFullYear()}|Leaders</footer>{" "}
     </>
   );
 }

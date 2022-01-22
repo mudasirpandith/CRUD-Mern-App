@@ -79,7 +79,16 @@ export default function Register() {
   return (
     <>
       {" "}
-      <center>
+      <center className="box">
+        <h1 className="leaders">LEADERS</h1>
+        <p className="leaders-des">An initiative to lead students</p>
+        <p className="note">
+          {" "}
+          <strong>LEADERS</strong> is an initiative to serve students of Jammu
+          And Kashmir.We provide online practise test for different subjects.
+          Besides we provides notes for different subjects.Our main motive is to
+          provide those facilities to students of J&K which they are lagging in.
+        </p>
         <div className="register-box">
           <h2>Log In </h2>
           <p className="message">{message}</p>
@@ -87,7 +96,7 @@ export default function Register() {
             onSubmit={onSubmit}
             component="form"
             sx={{
-              "& > :not(style)": { m: 1, width: "45ch" },
+              "& > :not(style)": { m: 1, width: "35ch" },
             }}
             noValidate
             autoComplete="off"
@@ -128,6 +137,7 @@ export default function Register() {
           </NavLink>
         </div>
       </center>
+      <footer>Copyright©{new Date().getFullYear()}|Leaders</footer>
     </>
   );
 }

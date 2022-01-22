@@ -219,11 +219,12 @@ export default function Test() {
     <>
       <center>
         <ReactLoading
-          type="spokes"
-          color="blue"
+          type="spin"
+          color="green"
           height={"100px"}
           width={"100px"}
         />
+        please wait
       </center>
     </>
   );

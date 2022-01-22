@@ -61,14 +61,18 @@ export default function Biology() {
     </>
   ) : (
     <>
+      {" "}
+      <CustomDrawer />
+      <h1>#</h1>
       <center>
         <ReactLoading
           padding-top="100px"
-          type="spokes"
-          color="blue"
+          type="spin"
+          color="green"
           height={"100px"}
           width={"100px"}
         />
+        please wait
       </center>
     </>
   );
