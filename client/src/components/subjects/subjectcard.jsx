@@ -20,7 +20,7 @@ export default function BasicCard(props) {
       </CardContent>
       <CardActions>
         <NavLink className="nav-link" to={props.link}>
-          <Button size="small">Take Test</Button>
+          <Button size="small">Start Test</Button>
         </NavLink>
       </CardActions>
     </Card>

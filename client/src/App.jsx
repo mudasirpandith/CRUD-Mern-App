@@ -16,22 +16,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route
-          path="/subjects/fullslybuss/physics/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
-          element={<Physics />}
-        />
-        <Route
-          path="/subjects/fullslybuss/chemistry/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
-          element={<Chemistry />}
-        />
-        <Route
-          path="/subjects/fullslybuss/biology/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
-          element={<Biology />}
-        />{" "}
-        <Route
-          path="/take/test/subject/biology/test/core/m/leaderss/j554654dewdij9320jdsd45wed2sajerndcnedmklerjekdmejnjnejkdjksdnkejdnejkiojr932enj3wdnhiuedhyecfe/test"
-          element={<Test />}
-        />
+        <Route path="/test/physics" element={<Physics />} />
+        <Route path="/test/chemistry" element={<Chemistry />} />
+        <Route path="/test/biology" element={<Biology />} />{" "}
+        <Route path="/test/subjectcode/:testId" element={<Test />} />
       </Routes>
     </>
   );

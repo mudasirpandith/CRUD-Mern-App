@@ -24,7 +24,7 @@ export default function CustomGrid() {
             <Item>
               {" "}
               <MultiActionAreaCard
-                link="/subjects/fullslybuss/biology/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
+                link="/test/biology"
                 image={BiologyFull}
                 subject="Biology"
               />{" "}
@@ -33,7 +33,7 @@ export default function CustomGrid() {
           <Grid item xs={12} sm={4}>
             <Item>
               <MultiActionAreaCard
-                link="/subjects/fullslybuss/physics/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
+                link="/test/physics"
                 image={PhysicsFull}
                 subject="Physics"
               />
@@ -42,7 +42,7 @@ export default function CustomGrid() {
           <Grid item xs={12} sm={4}>
             <Item>
               <MultiActionAreaCard
-                link="/subjects/fullslybuss/chemistry/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
+                link="/test/chemistry"
                 image={ChemistryFull}
                 subject="Chemistry"
               />

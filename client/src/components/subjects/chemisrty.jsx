@@ -1,72 +1,74 @@
 import React, { useState, useEffect } from "react";
 import BasicCard from "./subjectcard";
 import CustomDrawer from "../drawer";
-import subjects from "./csubject";
+
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import { useNavigate } from "react-router-dom";
+
+import ReactLoading from "react-loading";
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
-export default function Chemistry() {
-  const [userData, setUserData] = useState({});
-  const navigate = useNavigate();
-  async function getData() {
-    try {
-      const res = await fetch("/home", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-      const data = await res.json();
-      if (!res.status === 200) {
-        const error = new Error(res.error);
-        navigate("/login");
-      }
-      setUserData(data);
-    } catch (err) {
-      console.log(err);
-      navigate("/login");
-    }
-  }
+export default function Biology() {
+  const [allTests, setTestData] = useState([]);
 
   useEffect(() => {
-    let isActive = true;
-    if (isActive) {
-      getData();
-      return () => {
-        isActive = false;
-      };
-    }
-  }, []);
+    async function getTestData() {
+      try {
+        const res = await fetch("/alltests/chemistry");
+        const data = await res.json();
+        if (!res.status === 200) {
+          console.log("eroor ocured");
+        }
 
-  return (
+        setTestData(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    getTestData();
+  }, [allTests.length]);
+
+  return allTests.length ? (
     <>
       <CustomDrawer />
-      <h1>#</h1>
-      <h1>Physics</h1>
+
+      <h1>Biology</h1>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {" "}
-          {subjects.map((subject) => {
-            return (
-              <Grid item xs={12} xl={4}>
-                <Item>
-                  <BasicCard topic={subject.topic} link={subject.link} />
-                </Item>
-              </Grid>
-            );
-          })}
+          {allTests
+            .slice()
+            .reverse()
+            .map((test) => {
+              const url = "/test/subjectcode/" + test.TestId;
+              return (
+                <Grid item xs={12} xl={4}>
+                  <Item>
+                    <BasicCard topic={test.TopicName} link={url} />
+                  </Item>
+                </Grid>
+              );
+            })}
         </Grid>
       </Box>
+    </>
+  ) : (
+    <>
+      <center>
+        <ReactLoading
+          type="spokes"
+          color="blue"
+          height={"100px"}
+          width={"100px"}
+        />
+      </center>
     </>
   );
 }

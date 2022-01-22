@@ -61,24 +61,15 @@ export default function CustomDrawer(props) {
             Home
           </NavLink>{" "}
           <br />
-          <NavLink
-            className="nav-link"
-            to="/subjects/fullslybuss/physics/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
-          >
+          <NavLink className="nav-link" to="/test/physics">
             Physics Section
           </NavLink>{" "}
           <br />
-          <NavLink
-            className="nav-link"
-            to="subjects/fullslybuss/chemistry/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
-          >
+          <NavLink className="nav-link" to="/test/chemistry">
             Chemistry Section
           </NavLink>{" "}
           <br />
-          <NavLink
-            className="nav-link"
-            to="/subjects/fullslybuss/biology/hefiufdnfiueqhfui3ededjreihfhbiu43hrfbui3reiudhfuh4389rueekjdnreuifhri"
-          >
+          <NavLink className="nav-link" to="/test/biology">
             Biology Section
           </NavLink>{" "}
           <br />

@@ -30,7 +30,7 @@ export default function MultiActionAreaCard(props) {
         <NavLink className="nav-link" to={props.link}>
           <Button size="small" variant="contained">
             {" "}
-            Take A Visit{" "}
+            View All{" "}
           </Button>
         </NavLink>
       </CardActions>
