@@ -6,6 +6,9 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+var cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
 app.use(require("./routes/auth"));
 // get driver connection
 var bodyParser = require("body-parser");

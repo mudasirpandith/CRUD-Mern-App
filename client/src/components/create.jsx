@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { NavLink } from "react-router-dom";
+
 export default function Create() {
   const [message, setMessage] = useState("");
   const [form, setForm] = useState({
-    name: "",
-    position: "",
-    level: "",
+    username: "",
+    phoneNumber: "",
+    email: "",
+    address: "",
   });
   const navigate = useNavigate();
 
   // These methods will update the state properties.
-  function updateForm(value) {
+  function handleChange(e) {
+    const { name, value } = e.target;
     return setForm((prev) => {
-      return { ...prev, ...value };
+      return { ...prev, [name]: value };
     });
   }
 
@@ -35,79 +39,65 @@ export default function Create() {
     if (res.status === 400) {
       setMessage(data);
     } else {
-      setForm({ name: "", position: "", level: "" });
+      window.alert("User Added");
+      setForm({ username: "", phoneNumber: "", email: "", address: "" });
       navigate("/");
     }
   }
 
   return (
     <div>
-      <h3>Create New Record</h3>
-      <h3>{message}</h3>
+      <h3>Add Details</h3>
+      <center>
+        <p style={{ color: "red" }}> {message} </p>
+      </center>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="username">username</label>
           <input
             type="text"
             className="form-control"
-            id="name"
-            value={form.name}
-            onChange={(e) => updateForm({ name: e.target.value })}
+            placeholder="Only alphanumeric allowed"
+            id="username"
+            pattern="[a-zA-Z0-9]+"
+            name="username"
+            value={form.username}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="position">Position</label>
+          <label htmlFor="phonenumber">Phone Number</label>
+          <input
+            type="tel"
+            className="form-control"
+            id="phonenumber"
+            name="phoneNumber"
+            maxLength={10}
+            value={form.phoneNumber}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
           <input
             type="text"
             className="form-control"
-            id="position"
-            value={form.position}
-            onChange={(e) => updateForm({ position: e.target.value })}
+            id="email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
           />
-        </div>
+        </div>{" "}
         <div className="form-group">
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="positionOptions"
-              id="positionIntern"
-              value="Intern"
-              checked={form.level === "Intern"}
-              onChange={(e) => updateForm({ level: e.target.value })}
-            />
-            <label htmlFor="positionIntern" className="form-check-label">
-              Intern
-            </label>
-          </div>
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="positionOptions"
-              id="positionJunior"
-              value="Junior"
-              checked={form.level === "Junior"}
-              onChange={(e) => updateForm({ level: e.target.value })}
-            />
-            <label htmlFor="positionJunior" className="form-check-label">
-              Junior
-            </label>
-          </div>
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="positionOptions"
-              id="positionSenior"
-              value="Senior"
-              checked={form.level === "Senior"}
-              onChange={(e) => updateForm({ level: e.target.value })}
-            />
-            <label htmlFor="positionSenior" className="form-check-label">
-              Senior
-            </label>
-          </div>
+          <label htmlFor="address">Address</label>
+          <input
+            type="text"
+            className="form-control"
+            id="address"
+            name="address"
+            value={form.address}
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group">
           <input

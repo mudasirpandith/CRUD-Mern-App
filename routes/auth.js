@@ -3,17 +3,34 @@ const { ObjectId } = require("mongodb");
 const { findOne } = require("../model/user");
 require("../db/conn");
 const User = require("../model/user");
+const UserLogin = require("../model/lo");
+const jwt = require("jsonwebtoken");
 const router = express.Router();
+const authenticate = require("./middleware");
 //---------  this wil give list of record--------
 //----------------------------------------------
-router.get("/record", async (req, res) => {
-  res.cookie("e", "efiefhbhfbrf");
-  const response = await User.find({});
-  if (!response) {
-    res.json("No User in record");
+router.post("/userlogin", async (req, res) => {
+  var token;
+  const { email, password } = req.body;
+  if (!email || !password) {
+    res.status(400).json({ message: "Incomplete Credentails" });
   } else {
-    res.json(response);
+    const foundUser = await UserLogin.findOne({ email });
+    if (foundUser) {
+      token = await foundUser.generateAuthToken();
+      res.cookie("Leaders", token, {
+        expires: new Date(Date.now() + 5 * 60 * 1000),
+        httpOnly: true,
+      });
+
+      res.status(200).json({ message: "user loged in" });
+    } else {
+      res.status(400).json({ message: "user doesnt exit" });
+    }
   }
+});
+router.get("/record", authenticate, async (req, res) => {
+  res.status(200).json(req.userData);
 });
 
 //---------  this wil give single record--------
@@ -32,14 +49,15 @@ router.get("/record/:id", async (req, res) => {
 //----------------------------------------------
 
 router.post("/record/add", async (req, res) => {
-  const { name, position, level } = req.body;
-  if (!name || !position || !level) {
+  const { username, phoneNumber, email, address } = req.body;
+  if (!username || !phoneNumber || !email || !address) {
     res.status(400).json("Fill All Columns");
   } else {
     const user = new User({
-      name,
-      position,
-      level,
+      username,
+      phoneNumber,
+      email,
+      address,
     });
     const UserSaved = await user.save();
     if (!UserSaved) {
@@ -77,4 +95,5 @@ router.post("/:id", async (req, res) => {
     res.status(201).json("Record Deleted");
   }
 });
+
 module.exports = router;
