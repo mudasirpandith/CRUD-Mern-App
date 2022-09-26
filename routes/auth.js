@@ -1,4 +1,6 @@
 const express = require("express");
+const formData = require('form-data');
+const Mailgun = require('mailgun.js');
 const { ObjectId } = require("mongodb");
 const { findOne } = require("../model/user");
 require("../db/conn");
@@ -29,6 +31,7 @@ router.post("/userlogin", async (req, res) => {
     }
   }
 });
+
 router.get("/record", authenticate, async (req, res) => {
   res.status(200).json(req.userData);
 });
@@ -95,5 +98,24 @@ router.post("/:id", async (req, res) => {
     res.status(201).json("Record Deleted");
   }
 });
+// mailing...
+router.post("/web", async (req, res) => {
+const {name,email,phoneNumber,message}=req.body;
+const mailgun = new Mailgun(email);
+const mg = mailgun.client({
+	username: 'api',
+	key: '5d798ff018bd09cdc59c35f9aad1e82c-4534758e-6df45b9c',
+});
+mg.messages
+	.create(sandbox030000e870fd41dd8da1dd7e0c300943.mailgun.org, {
+		from: mail,
+		to: ["mudasirpandith789@gmail.com"],
+		subject: name+" "+phoneNumber ,
+		text: message,
+	})
+	.then(msg => console.log(msg)) // logs response data
+	.catch(err => console.log(err));
+});
+
 
 module.exports = router;
